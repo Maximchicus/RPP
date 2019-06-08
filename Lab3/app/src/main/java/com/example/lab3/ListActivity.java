@@ -5,13 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 public class ListActivity extends AppCompatActivity
 {
-    mDatabase database;
+    myDatabase database;
     RecyclerView recyclerView;
-    RVAdapter rvAdapter;
+    RecyclerViewAdapter recyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -19,7 +18,7 @@ public class ListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        database = Room.databaseBuilder(this, mDatabase.class, "databaseST")
+        database = Room.databaseBuilder(this, myDatabase.class, "databaseST")
                 .allowMainThreadQueries()
                 .build();
 
@@ -28,7 +27,7 @@ public class ListActivity extends AppCompatActivity
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        rvAdapter = new RVAdapter(database.studentDao().getAll());
-        recyclerView.setAdapter(rvAdapter);
+        recyclerViewAdapter = new RecyclerViewAdapter(database.studentDao().getAll());
+        recyclerView.setAdapter(recyclerViewAdapter);
     }
 }

@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder>
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
 {
     private List<Student> students;
     private Context mContext;
 
-    public RVAdapter(List<Student> students)
+    public RecyclerViewAdapter(List<Student> students)
     {
         this.students = students;
     }
@@ -26,7 +26,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder>
     {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rvadapter, viewGroup, false);
 //        ViewHolder holder = new ViewHolder(view);
-        return new RVAdapter.ViewHolder(view);
+        return new RecyclerViewAdapter.ViewHolder(view);
     }
 
     @Override

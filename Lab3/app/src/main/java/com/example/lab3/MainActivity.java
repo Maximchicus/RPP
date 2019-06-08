@@ -13,7 +13,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    mDatabase database;
+    myDatabase database;
     Button btn_one;
     Button btn_two;
     Button btn_three;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        database = Room.databaseBuilder(this, mDatabase.class, "databaseST")
+        database = Room.databaseBuilder(this, myDatabase.class, "databaseST")
                 .allowMainThreadQueries()
                 .build();
 
